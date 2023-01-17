@@ -1,0 +1,584 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B825E592-9A67-44A2-A475-ACB07C419FD8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RealEstate</RootNamespace>
+    <AssemblyName>RealEstate</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WIHO, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\WIHO.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\postProperty.css" />
+    <Content Include="assets\img\favicon.png" />
+    <Content Include="assets\img\furniture.png" />
+    <Content Include="assets\img\houseLoader.gif" />
+    <Content Include="assets\img\meal.png" />
+    <Content Include="assets\img\movers.png" />
+    <Content Include="assets\img\NoImage.png" />
+    <Content Include="assets\img\photo.png" />
+    <Content Include="assets\img\propertyDetails.png" />
+    <Content Include="assets\img\user.png" />
+    <Content Include="assets\js\popper.min.js" />
+    <Content Include="cpanel\ApprovalList.aspx" />
+    <Content Include="cpanel\css\ddlSearch.css" />
+    <Content Include="cpanel\css\plugins\chosen\bootstrap-chosen.css" />
+    <Content Include="cpanel\css\plugins\chosen\chosen-sprite%402x.png" />
+    <Content Include="cpanel\css\plugins\chosen\chosen-sprite.png" />
+    <Content Include="cpanel\css\plugins\chosen\chosen.css" />
+    <Content Include="cpanel\css\plugins\datapicker\datepicker3.css" />
+    <Content Include="cpanel\datepicker.aspx" />
+    <Content Include="cpanel\js\ddlsearch_jquery.min.js" />
+    <Content Include="cpanel\js\bootstrap-select.min.js" />
+    <Content Include="cpanel\js\plugins\chosen\chosen.jquery.js" />
+    <Content Include="cpanel\js\plugins\datapicker\bootstrap-datepicker.js" />
+    <Content Include="cpanel\ManageEnquiry.aspx" />
+    <Content Include="cpanel\RentPropertyDetail.aspx" />
+    <Content Include="cpanel\PropertyDetails.aspx" />
+    <Content Include="cpanel\SalePropertyDetails.aspx" />
+    <Content Include="PostProperty.aspx" />
+    <Content Include="assets\css\animate.min.css" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\dropzone.css" />
+    <Content Include="assets\css\images\layers-2x.png" />
+    <Content Include="assets\css\images\layers.png" />
+    <Content Include="assets\css\jquery.mCustomScrollbar.css" />
+    <Content Include="assets\css\jquery.selectBox.css" />
+    <Content Include="assets\css\leaflet.css" />
+    <Content Include="assets\css\magnific-popup.css" />
+    <Content Include="assets\css\map.css" />
+    <Content Include="assets\css\mCSB_buttons.png" />
+    <Content Include="assets\css\rangeslider.css" />
+    <Content Include="assets\css\skins\default.css" />
+    <Content Include="assets\css\slick-theme.css" />
+    <Content Include="assets\css\slick.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\fonts\flaticon\font\flaticon.css" />
+    <Content Include="assets\fonts\flaticon\font\Flaticon.svg" />
+    <Content Include="assets\fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="assets\fonts\slick\slick.svg" />
+    <Content Include="assets\img\ajax-loader.gif" />
+    <Content Include="assets\img\avatar\avatar-2.jpg" />
+    <Content Include="assets\img\avatar\avatar-3.jpg" />
+    <Content Include="assets\img\avatar\avatar.jpg" />
+    <Content Include="assets\img\banner-1.jpg" />
+    <Content Include="assets\img\banner-4.jpg" />
+    <Content Include="assets\img\bg-photo-2.jpg" />
+    <Content Include="assets\img\loader.gif" />
+    <Content Include="assets\img\logos\black-logo.png" />
+    <Content Include="assets\img\logos\logo.png" />
+    <Content Include="assets\img\recent-property-4.jpg" />
+    <Content Include="assets\img\service-photo\service-2.jpg" />
+    <Content Include="assets\img\service-photo\service-3.jpg" />
+    <Content Include="assets\img\service-photo\service.jpg" />
+    <Content Include="assets\img\shop\shop-1.jpg" />
+    <Content Include="assets\img\shop\shop-2.jpg" />
+    <Content Include="assets\img\shop\shop-3.jpg" />
+    <Content Include="assets\img\shop\shop-4.jpg" />
+    <Content Include="assets\img\shop\shop-5.jpg" />
+    <Content Include="assets\img\sub-property\sub-property-2.jpg" />
+    <Content Include="assets\img\sub-property\sub-property-3.jpg" />
+    <Content Include="assets\img\sub-property\sub-property.jpg" />
+    <Content Include="assets\img\testimonial-property.jpg" />
+    <Content Include="assets\js\app.js" />
+    <Content Include="assets\js\backstretch.js" />
+    <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\dropzone.js" />
+    <Content Include="assets\js\ie-emulation-modes-warning.js" />
+    <Content Include="assets\js\jquery-2.2.0.min.js" />
+    <Content Include="assets\js\jquery.countdown.js" />
+    <Content Include="assets\js\jquery.filterizr.js" />
+    <Content Include="assets\js\jquery.magnific-popup.min.js" />
+    <Content Include="assets\js\jquery.mb.YTPlayer.js" />
+    <Content Include="assets\js\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="assets\js\jquery.scrollUp.js" />
+    <Content Include="assets\js\jquery.selectBox.js" />
+    <Content Include="assets\js\leaflet-providers.js" />
+    <Content Include="assets\js\leaflet.js" />
+    <Content Include="assets\js\leaflet.markercluster.js" />
+    <Content Include="assets\js\maps.js" />
+    <Content Include="assets\js\particles.min.js" />
+    <Content Include="assets\js\rangeslider.js" />
+    <Content Include="assets\js\slick.min.js" />
+    <Content Include="assets\js\typed.min.js" />
+    <Content Include="assets\js\wow.min.js" />
+    <Content Include="Contact.aspx" />
+    <Content Include="cpanel\AddLocation.aspx" />
+    <Content Include="cpanel\AddRentEnquiry.aspx" />
+    <Content Include="cpanel\AddRentOutEntry.aspx" />
+    <Content Include="cpanel\AddRentProperty.aspx" />
+    <Content Include="cpanel\AddSaleEnquiry.aspx" />
+    <Content Include="cpanel\AddSaleProperty.aspx" />
+    <Content Include="cpanel\AddSoldOutEntry.aspx" />
+    <Content Include="cpanel\css\animate.css" />
+    <Content Include="cpanel\css\bootstrap.min.css" />
+    <Content Include="cpanel\css\patterns\1.png" />
+    <Content Include="cpanel\css\patterns\2.png" />
+    <Content Include="cpanel\css\patterns\3.png" />
+    <Content Include="cpanel\css\patterns\4.png" />
+    <Content Include="cpanel\css\patterns\5.png" />
+    <Content Include="cpanel\css\patterns\6.png" />
+    <Content Include="cpanel\css\patterns\7.png" />
+    <Content Include="cpanel\css\patterns\congruent_pentagon.png" />
+    <Content Include="cpanel\css\patterns\header-profile-skin-1.png" />
+    <Content Include="cpanel\css\patterns\header-profile-skin-2.png" />
+    <Content Include="cpanel\css\patterns\header-profile-skin-3.png" />
+    <Content Include="cpanel\css\patterns\header-profile.png" />
+    <Content Include="cpanel\css\patterns\otis_redding.png" />
+    <Content Include="cpanel\css\patterns\shattered.png" />
+    <Content Include="cpanel\css\patterns\triangular.png" />
+    <Content Include="cpanel\css\plugins\awesome-bootstrap-checkbox\awesome-bootstrap-checkbox.css" />
+    <Content Include="cpanel\css\plugins\footable\fonts\footable.svg" />
+    <Content Include="cpanel\css\plugins\footable\footable.core.css" />
+    <Content Include="cpanel\css\plugins\iCheck\custom.css" />
+    <Content Include="cpanel\css\plugins\iCheck\green%402x.png" />
+    <Content Include="cpanel\css\plugins\iCheck\green.png" />
+    <Content Include="cpanel\css\style.css" />
+    <Content Include="cpanel\Dashboard.aspx" />
+    <Content Include="cpanel\favicon.ico" />
+    <Content Include="cpanel\font-awesome\css\font-awesome.css" />
+    <Content Include="cpanel\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="cpanel\img\add_record.png" />
+    <Content Include="cpanel\img\crossIcon_red.png" />
+    <Content Include="cpanel\img\delete.png" />
+    <Content Include="cpanel\img\edit.png" />
+    <Content Include="cpanel\img\marker.png" />
+    <Content Include="cpanel\img\profile_small.jpg" />
+    <Content Include="cpanel\img\search.png" />
+    <Content Include="cpanel\img\sold.png" />
+    <Content Include="cpanel\img\tickIcon_green.png" />
+    <Content Include="cpanel\img\userIcon.png" />
+    <Content Include="cpanel\img\viewDetails.png" />
+    <Content Include="cpanel\js\bootstrap.min.js" />
+    <Content Include="cpanel\js\inspinia.js" />
+    <Content Include="cpanel\js\jquery-3.1.1.min.js" />
+    <Content Include="cpanel\js\plugins\footable\footable.all.min.js" />
+    <Content Include="cpanel\js\plugins\iCheck\icheck.min.js" />
+    <Content Include="cpanel\js\plugins\metisMenu\jquery.metisMenu.js" />
+    <Content Include="cpanel\js\plugins\pace\pace.min.js" />
+    <Content Include="cpanel\js\plugins\slimscroll\jquery.slimscroll.js" />
+    <Content Include="cpanel\js\plugins\slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="cpanel\LoginPage.aspx" />
+    <Content Include="cpanel\Logout.aspx" />
+    <Content Include="cpanel\ManageLocation.aspx" />
+    <Content Include="cpanel\ManageRentEnquiry.aspx" />
+    <Content Include="cpanel\ManageRentProperty.aspx" />
+    <Content Include="cpanel\ManageSaleEnquiry.aspx" />
+    <Content Include="cpanel\ManageSaleProperty.aspx" />
+    <Content Include="cpanel\RentPropertiesForEnquiry.aspx" />
+    <Content Include="cpanel\RentOutProperties.aspx" />
+    <Content Include="cpanel\SalePropertiesForEnquiry.aspx" />
+    <Content Include="cpanel\SoldOutProperties.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Index.aspx" />
+    <Content Include="Properties.aspx" />
+    <Content Include="PropertyDetails.aspx" />
+    <Content Include="Services.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="WebForm1.aspx" />
+    <Content Include="WebForm2.aspx" />
+    <Content Include="WebForm3.aspx" />
+    <Content Include="WebForm4.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="cpanel\ApprovalList.aspx.cs">
+      <DependentUpon>ApprovalList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\ApprovalList.aspx.designer.cs">
+      <DependentUpon>ApprovalList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cpanel\datepicker.aspx.cs">
+      <DependentUpon>datepicker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\datepicker.aspx.designer.cs">
+      <DependentUpon>datepicker.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cpanel\ManageEnquiry.aspx.cs">
+      <DependentUpon>ManageEnquiry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\ManageEnquiry.aspx.designer.cs">
+      <DependentUpon>ManageEnquiry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cpanel\RentPropertyDetail.aspx.cs">
+      <DependentUpon>RentPropertyDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\RentPropertyDetail.aspx.designer.cs">
+      <DependentUpon>RentPropertyDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cpanel\PropertyDetails.aspx.cs">
+      <DependentUpon>PropertyDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\PropertyDetails.aspx.designer.cs">
+      <DependentUpon>PropertyDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cpanel\SalePropertyDetails.aspx.cs">
+      <DependentUpon>SalePropertyDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\SalePropertyDetails.aspx.designer.cs">
+      <DependentUpon>SalePropertyDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PostProperty.aspx.cs">
+      <DependentUpon>PostProperty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PostProperty.aspx.designer.cs">
+      <DependentUpon>PostProperty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cpanel\AddLocation.aspx.cs">
+      <DependentUpon>AddLocation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\AddLocation.aspx.designer.cs">
+      <DependentUpon>AddLocation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cpanel\AddRentEnquiry.aspx.cs">
+      <DependentUpon>AddRentEnquiry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\AddRentEnquiry.aspx.designer.cs">
+      <DependentUpon>AddRentEnquiry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cpanel\AddRentOutEntry.aspx.cs">
+      <DependentUpon>AddRentOutEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\AddRentOutEntry.aspx.designer.cs">
+      <DependentUpon>AddRentOutEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cpanel\AddRentProperty.aspx.cs">
+      <DependentUpon>AddRentProperty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\AddRentProperty.aspx.designer.cs">
+      <DependentUpon>AddRentProperty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cpanel\AddSaleEnquiry.aspx.cs">
+      <DependentUpon>AddSaleEnquiry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\AddSaleEnquiry.aspx.designer.cs">
+      <DependentUpon>AddSaleEnquiry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cpanel\AddSaleProperty.aspx.cs">
+      <DependentUpon>AddSaleProperty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\AddSaleProperty.aspx.designer.cs">
+      <DependentUpon>AddSaleProperty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cpanel\AddSoldOutEntry.aspx.cs">
+      <DependentUpon>AddSoldOutEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\AddSoldOutEntry.aspx.designer.cs">
+      <DependentUpon>AddSoldOutEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cpanel\BAL\BAL_Admin.cs" />
+    <Compile Include="cpanel\BAL\BAL_Enquiry.cs" />
+    <Compile Include="cpanel\BAL\BAL_Property.cs" />
+    <Compile Include="cpanel\BAL\BAL_PropertyCusrtomer.cs" />
+    <Compile Include="cpanel\BEL\BEL_Admin.cs" />
+    <Compile Include="cpanel\BEL\BEL_Enquiry.cs" />
+    <Compile Include="cpanel\BEL\BEL_Property.cs" />
+    <Compile Include="cpanel\BEL\BEL_PropertyCusrtomer.cs" />
+    <Compile Include="cpanel\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cpanel\LoginPage.aspx.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\LoginPage.aspx.designer.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cpanel\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cpanel\ManageLocation.aspx.cs">
+      <DependentUpon>ManageLocation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\ManageLocation.aspx.designer.cs">
+      <DependentUpon>ManageLocation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cpanel\ManageRentEnquiry.aspx.cs">
+      <DependentUpon>ManageRentEnquiry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\ManageRentEnquiry.aspx.designer.cs">
+      <DependentUpon>ManageRentEnquiry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cpanel\ManageRentProperty.aspx.cs">
+      <DependentUpon>ManageRentProperty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\ManageRentProperty.aspx.designer.cs">
+      <DependentUpon>ManageRentProperty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cpanel\ManageSaleEnquiry.aspx.cs">
+      <DependentUpon>ManageSaleEnquiry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\ManageSaleEnquiry.aspx.designer.cs">
+      <DependentUpon>ManageSaleEnquiry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cpanel\ManageSaleProperty.aspx.cs">
+      <DependentUpon>ManageSaleProperty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\ManageSaleProperty.aspx.designer.cs">
+      <DependentUpon>ManageSaleProperty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cpanel\MasterCP.Master.cs">
+      <DependentUpon>MasterCP.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\MasterCP.Master.designer.cs">
+      <DependentUpon>MasterCP.Master</DependentUpon>
+    </Compile>
+    <Compile Include="cpanel\RentPropertiesForEnquiry.aspx.cs">
+      <DependentUpon>RentPropertiesForEnquiry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\RentPropertiesForEnquiry.aspx.designer.cs">
+      <DependentUpon>RentPropertiesForEnquiry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cpanel\RentOutProperties.aspx.cs">
+      <DependentUpon>RentOutProperties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\RentOutProperties.aspx.designer.cs">
+      <DependentUpon>RentOutProperties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cpanel\SalePropertiesForEnquiry.aspx.cs">
+      <DependentUpon>SalePropertiesForEnquiry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\SalePropertiesForEnquiry.aspx.designer.cs">
+      <DependentUpon>SalePropertiesForEnquiry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cpanel\SoldOutProperties.aspx.cs">
+      <DependentUpon>SoldOutProperties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpanel\SoldOutProperties.aspx.designer.cs">
+      <DependentUpon>SoldOutProperties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master.Master.cs">
+      <DependentUpon>Master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master.Master.designer.cs">
+      <DependentUpon>Master.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties.aspx.cs">
+      <DependentUpon>Properties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Properties.aspx.designer.cs">
+      <DependentUpon>Properties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyDetails.aspx.cs">
+      <DependentUpon>PropertyDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PropertyDetails.aspx.designer.cs">
+      <DependentUpon>PropertyDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services.aspx.cs">
+      <DependentUpon>Services.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Services.aspx.designer.cs">
+      <DependentUpon>Services.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm3.aspx.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm3.aspx.designer.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm4.aspx.cs">
+      <DependentUpon>WebForm4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm4.aspx.designer.cs">
+      <DependentUpon>WebForm4.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\fonts\flaticon\font\Flaticon.eot" />
+    <Content Include="assets\fonts\flaticon\font\Flaticon.ttf" />
+    <Content Include="assets\fonts\flaticon\font\Flaticon.woff" />
+    <Content Include="assets\fonts\flaticon\font\Flaticond41d.eot" />
+    <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfont3e6e.woff2" />
+    <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="assets\fonts\slick\slick.eot" />
+    <Content Include="assets\fonts\slick\slick.ttf" />
+    <Content Include="assets\fonts\slick\slick.woff" />
+    <Content Include="assets\fonts\slick\slickd41d.eot" />
+    <Content Include="Master.Master" />
+    <Content Include="cpanel\MasterCP.Master" />
+    <Content Include="cpanel\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="cpanel\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="cpanel\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="cpanel\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="cpanel\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="cpanel\css\plugins\footable\fonts\footable.eot" />
+    <Content Include="cpanel\css\plugins\footable\fonts\footable.ttf" />
+    <Content Include="cpanel\css\plugins\footable\fonts\footable.woff" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="assets\images\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53146</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:53146/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

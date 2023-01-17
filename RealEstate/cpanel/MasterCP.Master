@@ -1,0 +1,224 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterCP.master.cs" Inherits="RealEstate.cpanel.MasterCP" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Form -->
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">    
+    <link type="text/css" rel="stylesheet" href="css/plugins/datapicker/datepicker3.css">
+
+    <!-- FooTable -->
+    <link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+     <!-- Favicon icon -->
+    <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
+    <style>
+        @media only screen and (min-width : 770px) {
+            .ibox-title {
+                display:none;
+            }
+            .page-heading {
+                display:block;
+            }
+        }
+
+        @media only screen and (max-width : 770px) {
+            .ibox-title {
+                display:block;
+            }
+                .ibox-title h5 {
+                    font-size:16px;
+                    font-weight:normal;
+                }
+            .page-heading {
+                display:none;
+            }
+        }
+    </style>
+    <script>
+        window.setTimeout(function () {
+            $(".alert").fadeTo(500, 0).slideUp(500, function () {
+                $(this).remove();
+            });
+        }, 4000);
+    </script>  
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="wrapper">
+            <nav class="navbar-default navbar-static-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav metismenu" id="side-menu">
+                        <li class="nav-header">
+                            <div class="dropdown profile-element">
+                                <span>
+                                    <img alt="image" class="img-circle" src="img/profile_small.jpg" />
+                                </span>
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                    <span class="clear"><span class="block m-t-xs">
+                                        <strong class="font-bold">
+                                            <asp:Label ID="lblName" runat="server"></asp:Label></strong>
+                                    </span><span class="text-muted text-xs block">
+                                        <asp:Label ID="lblRole" runat="server"></asp:Label><b class="caret"></b></span></span></a>
+                                <ul class="dropdown-menu animated fadeInRight m-t-xs">                                    
+                                    <li><a href="Logout.aspx">Logout</a></li>
+                                </ul>
+                            </div>
+                            <div class="logo-element">
+                                RE                   
+                            </div>
+                        </li>
+                        <li>
+                            <a href="Dashboard.aspx"><i class="fa fa-th-large"></i><span class="nav-label">Dashboards</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-user"></i><span class="nav-label">Master</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="ApprovalList.aspx">Approval List</a></li>
+                                <li><a href="ManageLocation.aspx">Location</a></li>
+                                <li><a href="ManageEnquiry.aspx">Website Enquiry</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-building"></i><span class="nav-label">Properties</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="ManageRentProperty.aspx">For Rent</a></li>
+                                <li><a href="ManageSaleProperty.aspx">For Sale</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-key"></i><span class="nav-label">Out Properties</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="RentOutProperties.aspx">Rented Out</a></li>
+                                <li><a href="SoldOutProperties.aspx">Sold Out</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-search"></i><span class="nav-label">Enquiries</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="ManageRentEnquiry.aspx">Rent Enquiry</a></li>
+                                <li><a href="ManageSaleEnquiry.aspx">Buy Enquiry</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div id="page-wrapper" class="gray-bg">
+                <div class="row border-bottom">
+                    <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+                        <div class="navbar-header">
+                            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                            <div role="search" class="navbar-form-custom"></div>
+                        </div>
+                        <ul class="nav navbar-top-links navbar-right">
+                            <li>
+                                <span class="m-r-sm text-muted welcome-message">Welcome</span>
+                                <strong class="font-bold"><asp:Label ID="lblName2" runat="server"></asp:Label></strong>
+                            </li>                            
+                            <li class="dropdown">
+                                <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-bell"></i><span id="NotificationBatch" runat="server" class="label label-danger"><asp:Label ID="lblNotificationCount" runat="server" Text=""></asp:Label></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-alerts">
+                                    <asp:Repeater ID="rptrPropertyNotification" runat="server">
+                                        <ItemTemplate>
+                                            <li>
+                                                <a href='<%# "PropertyDetails.aspx?ID=" + Eval("propertyID").ToString() %>' style="padding: 4px 4px 4px 0;font-weight:bold">
+                                                    <div>
+                                                        <i class="fa fa-building-o fa-fw"></i>
+                                                        <a href='<%# "PropertyDetails.aspx?ID=" + Eval("propertyID").ToString() %>' style="padding: 4px 0px;font-weight:bold; overflow: hidden; text-overflow: ellipsis;width:65%">
+                                                            <asp:Label ID="lblPropertyTitle" runat="server" Text='<%# (Eval("bedrooms").ToString() == "Null" ? "" :Eval("bedrooms").ToString()) + " " + Eval("propertyType").ToString() + " in " + Eval("Location").ToString() %>' ToolTip='<%# Eval("bedrooms").ToString() + " " + Eval("propertyType").ToString() + " in " + Eval("Location").ToString() %>'></asp:Label>
+                                                        </a>
+                                                        <span class="pull-right text-muted small" style="">
+                                                            <asp:Label ID="lblPost1" runat="server" Text='<%# (DateTime.Now - Convert.ToDateTime(Eval("postDate"))).TotalDays <= 30 ? string.Format("{0:0}",Convert.ToInt32(((DateTime.Now - Convert.ToDateTime(Eval("postDate"))).TotalDays)-1)) + " days ago" :  Eval("postDate", "{0:dd-MMM-yyyy}").ToString()%>'></asp:Label>
+                                                        </span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="divider"></li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>                                    
+                                    <li>
+                                        <div class="text-center link-block">
+                                            <a href="ApprovalList.aspx">
+                                                <strong>See All Notifications</strong>
+                                                <i class="fa fa-angle-right"></i>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="Logout.aspx"><i class="fa fa-sign-out"></i>Log out</a>
+                            </li>
+                        </ul>
+
+                    </nav>
+                </div>
+                <asp:Panel ID="pnlAlert" runat="server" class="" role="alert" Visible="false" Style="margin:20px auto 0 auto;width:60%">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <asp:Label ID="lblalert" runat="server" Text="" Font-Bold="true"></asp:Label>
+                </asp:Panel>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">                    
+                </asp:ContentPlaceHolder>
+                <div class="footer">                    
+                    <div class="col-md-6">
+                       Copyright <strong>Hunt Home</strong> &copy; 2018-2019
+                    </div>
+                    <div class="col-md-6"  style="text-align:right">
+                        Design and Developed by <strong><a href="www.jericotechnologies.in">Jerico Technologies</a></strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- FooTable -->
+    <script src="js/plugins/footable/footable.all.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+
+    <!-- Form -->
+    <script src="js/plugins/iCheck/icheck.min.js"></script>    
+    <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+    <!-- Page-Level Scripts -->
+    <script>
+        $(document).ready(function () {
+
+            $('.footable').footable();
+            $('.footable2').footable();
+
+        });
+
+        $(document).ready(function () {
+                $('.i-checks').iCheck({
+                    checkboxClass: 'icheckbox_square-green',
+                    radioClass: 'iradio_square-green',
+                });
+            });
+    </script>
+</body>
+</html>

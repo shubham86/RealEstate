@@ -1,0 +1,345 @@
+﻿    <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="RealEstate.Master" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <!-- External CSS libraries -->
+    <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/jquery.selectBox.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/dropzone.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/rangeslider.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/animate.min.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/leaflet.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/slick.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/slick-theme.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/slick-theme.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/map.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.css">
+    <link type="text/css" rel="stylesheet" href="assets/fonts/font-awesome/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="assets/fonts/flaticon/font/flaticon.css">
+
+    <!-- Favicon icon -->
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+    <!-- Google fonts -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPoppins:400,500,700,800,900%7CRoboto:100,300,400,400i,500,700">
+
+    <!-- Custom Stylesheet -->
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" id="style_sheet" href="assets/css/skins/default.css">
+    <link rel="stylesheet" type="text/css" href="cpanel/css/plugins/datapicker/datepicker3.css">
+    <style>
+        @media only screen and (min-width : 1024px) {
+            
+            
+            .btnPost1 {
+                display:none;
+            }            
+            .btnPost2 {
+                display:block;
+            }
+        }
+
+        @media only screen and (min-device-width : 480px) and (max-device-width : 1024px) {
+            
+            .signup-link {
+                margin:10px;
+            }            
+            .btnPost1 {
+                display:block;
+                padding: 3px 5px;
+                font-size: 14px;
+                font-weight: bold;
+            }            
+            .btnPost2 {
+                display:none;
+            }
+        }
+
+        @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+            
+
+            .footer h4 , .Subscribe-box , .contact-info {
+                text-align:center;
+            }
+            .footer .links {
+                padding-left:32%;
+            }
+            .footer .social-list {
+                padding-left:28%;
+            }
+            #FooterMenu {
+            display:none;
+            }
+            .signup-link {
+                margin:10px;
+            }
+            .btnPost1 {
+                display:block;
+                padding: 3px 5px;
+                font-size: 10px;
+            }            
+            .btnPost2 {
+                display:none;
+            }
+        }
+
+        .selectBox-dropdown .selectBox-label {
+            vertical-align: bottom;
+            padding: 3px 8px;
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        ::placeholder {
+            color: #999999;
+        }
+        .whatsapp:hover {
+            color:forestgreen;
+        }
+    </style>
+    <script>       
+        function validateForm(){
+            if (document.getElementById('<%=txtName.ClientID%>').value == "") {
+                document.getElementById('<%=pnlAlert.ClientID%>').style.display = "block";
+                document.getElementById('<%=pnlAlert.ClientID%>').setAttribute("class", "alert alert-danger");
+                document.getElementById('<%=lblalert.ClientID%>').innerHTML = "Please enter your name";
+                document.getElementById('<%=txtName.ClientID%>').focus();
+                return false;
+            }
+            if (document.getElementById('<%=txtMobile.ClientID%>').value == "") {
+                document.getElementById('<%=pnlAlert.ClientID%>').style.display = "block";
+                document.getElementById('<%=pnlAlert.ClientID%>').setAttribute("class", "alert alert-danger");
+                document.getElementById('<%=lblalert.ClientID%>').innerHTML = "Please enter your mobile number";
+                document.getElementById('<%=txtMobile.ClientID%>').focus();
+                return false;
+            }
+            if (document.getElementById('<%=txtMobile.ClientID%>').value.length < 10) {
+                document.getElementById('<%=pnlAlert.ClientID%>').style.display = "block";
+                document.getElementById('<%=pnlAlert.ClientID%>').setAttribute("class", "alert alert-danger");
+                document.getElementById('<%=lblalert.ClientID%>').innerHTML = "Please enter valid mobile number";
+                document.getElementById('<%=txtMobile.ClientID%>').focus();
+                return false;
+            }
+            if (document.getElementById('<%=ddlLocation.ClientID%>').value == "0") {
+                document.getElementById('<%=pnlAlert.ClientID%>').style.display = "block";
+                document.getElementById('<%=pnlAlert.ClientID%>').setAttribute("class", "alert alert-danger");
+                document.getElementById('<%=lblalert.ClientID%>').innerHTML = "Please select location";
+                document.getElementById('<%=ddlLocation.ClientID%>').focus();
+                return false;
+            }
+            if (document.getElementById('<%=txtType.ClientID%>').value == "") {
+                document.getElementById('<%=pnlAlert.ClientID%>').style.display = "block";
+                document.getElementById('<%=pnlAlert.ClientID%>').setAttribute("class", "alert alert-danger");
+                document.getElementById('<%=lblalert.ClientID%>').innerHTML = "Please enter property type";
+                document.getElementById('<%=txtType.ClientID%>').focus();
+                return false;
+            }
+
+            document.getElementById('<%=btnSend.ClientID%>').style.display = "none";
+            document.getElementById('<%=btnSend1.ClientID%>').style.display = "block";
+        }
+
+        function hidealert() {
+            document.getElementById('<%=pnlAlert.ClientID%>').style.display = "none";
+        }
+
+        function isNumberKey(evt, obj) {
+
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            var value = obj.value;
+            var dotcontains = value.indexOf(".") != -1;
+            if (dotcontains)
+                if (charCode == 46) return false;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) return false;
+                        
+            document.getElementById("lblArea").style.display = "none"
+            document.getElementById("lblContactNo").style.display = "none";
+            document.getElementById("lblContactNo1").style.display = "none";
+            return true;
+        }
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div class="page_loader"></div>
+
+            <!-- main header start -->
+            <header class="main-header sticky-header" id="main-header-2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <nav class="navbar navbar-expand-lg navbar-light rounded">
+                                <a class="navbar-brand logo navbar-brand d-flex mr-auto" href="Index.aspx">
+                                    <img id="Logo" src="assets/img/logos/black-logo.png" alt="logo">
+                                </a>
+                                <a class="btn btn-sm btn-white-sm-outline btn-round signup-link btnPost1" href="PostProperty.aspx">Post Property</a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="fa fa-bars"></span>
+                                </button>
+                                <div class="navbar-collapse collapse w-100" id="navbar">
+                                    <ul class="navbar-nav ml-auto">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="Index.aspx">Home</a>                                            
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link" href="Properties.aspx">Properties</a>                                            
+                                        </li>
+                                        <li class="nav-item dropdown megamenu-li">
+                                            <a class="nav-link" href="Services.aspx">Service</a>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link" href="Contact.aspx">Contact</a>                                            
+                                        </li>                                        
+                                        <li class="nav-item dropdown">
+                                            <a class="btn btn-sm btn-white-sm-outline btn-round signup-link btnPost2" href="PostProperty.aspx">Post Property</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- main header end -->
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <!-- Footer start -->
+            <footer class="footer">
+                <div class="container footer-inner">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                            <div class="footer-item">
+                                <h4>Contact Us</h4>
+
+                                <ul class="contact-info">
+                                    <li><i class="fa fa-map-marker"></i>&nbsp A/102 , Near Eden Court , Model Colony,<br />&nbsp &nbsp Shivaji Nagar, Pune 410116</li>
+                                    <li><i class="fa fa-envelope"></i>&nbsp <a href="mailto:info@hunthome.in">info@hunthome.in</a></li>
+                                    <li><i class="fa fa-phone"></i>&nbsp <a href="tel:7066053339">+91 7066-05-3339</a><br />&nbsp &nbsp &nbsp<a href="tel:8888168608">+91 8888-16-8608</a></li>
+                                </ul>
+
+                                <ul class="social-list clearfix">
+                                    <li><a href="https://www.facebook.com/Hunt-Home-2301437163469284/" class="facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="javascript:void(0)" class="instagram"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="https://api.whatsapp.com/send?phone=+918888168608&text=Hi, I contacted you Through your website." target="_blank"><i class="fa fa-whatsapp whatsapp"></i></a></li>                                    
+                                    <li><a href="javascript:void(0)" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="javascript:void(0)" class="google"><i class="fa fa-google-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6" id="FooterMenu">
+                            <div class="footer-item">
+                                <h4>Useful Links</h4>
+                                <ul class="links">
+                                    <li>
+                                        <a href="Index.aspx"><i class="fa fa-angle-right"></i>Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="Services.aspx"><i class="fa fa-angle-right"></i>Service</a>
+                                    </li>
+                                    <li>
+                                        <a href="Properties.aspx"><i class="fa fa-angle-right"></i>Properties</a>
+                                    </li>
+                                    <li>
+                                        <a href="Contact.aspx"><i class="fa fa-angle-right"></i>Contact Us</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"><i class="fa fa-angle-right"></i>Terms and Conditions</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"><i class="fa fa-angle-right"></i>Privacy Policy</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>                        
+                        <div class="col-xl-5 col-lg-5 col-md-6 col-sm-6">
+                            <div class="footer-item clearfix">
+                                <h4 style="margin-bottom:15px">Enquiry</h4>
+                                <div class="Subscribe-box">                                    
+                                    <asp:Panel ID="pnlAlert" runat="server" role="alert" Width="100%" style="display:none">
+                                        &nbsp<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <asp:Label ID="lblalert" runat="server" Font-Size="12px" Font-Bold="true"></asp:Label>
+                                    </asp:Panel>
+
+                                    <div class="row">
+                                        <p class="col-md-12">
+                                            <input type="text" class="form-contact" id="txtName" runat="server" placeholder="Enter your Name" style="padding: 0 15px;width:100%" onclick="hidealert()">
+                                        </p>
+                                        <p class="col-md-6">
+                                            <input type="tel" class="form-contact" id="txtMobile" runat="server" placeholder="Enter Mobile Number" maxlength="10" style="padding: 0 15px;width:100%" onkeypress='javascript:return isNumberKey(event,this);'  onclick="hidealert()">
+                                        </p>
+                                        <p class="col-md-6">
+                                            <asp:DropDownList ID="ddlLocation" runat="server" class="form-contact" Width="100%" onclick="hidealert()"></asp:DropDownList>
+                                        </p>
+                                        <p class="col-md-6">
+                                            <asp:DropDownList ID="ddlSatus" runat="server" class="form-contact" Width="100%">
+                                                <asp:ListItem Text="Rent" Value="1"></asp:ListItem>
+                                                <asp:ListItem Text="Buy" Value="2"></asp:ListItem>
+                                            </asp:DropDownList>
+                                        </p>
+                                        <p class="col-md-6">
+                                            <input type="text" class="form-contact" id="txtType" runat="server" placeholder="Property Type: eg. 2 BHK" style="padding: 0 15px;width:100%"  onclick="hidealert()">
+                                        </p>
+                                        <p class="col-md-12">
+                                            <textarea type="text" class="form-contact" id="txtMsg" runat="server" placeholder="Enter Query" style="padding: 0 15px;width:100%"></textarea>
+                                        </p>
+                                        <p class="col-md-12">
+                                            <a id="btnSend" runat="server" class="btn btn-block btn-color" onclick="return validateForm()" onserverclick="btnSendMessage_Click" style="color:white">Send</a>
+                                            <a id="btnSend1" runat="server" class="btn btn-block btn-color" style="color:white;display:none">Sending...</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <p class="copy" style="margin:0;padding-bottom:0">&copy;  2019 <b>Hunt Home</b>. All rights reserved.</p>
+                            <p style="text-align:center">Design and developed by <a href="http://www.jericotechnologies.in" target="_blank"><span style="color:#38d5ff">Jerico Technologies</span></a></p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- Footer end -->
+        </div>
+    </form>
+
+    <!-- External JS libraries -->
+    <script src="assets/js/jquery-2.2.0.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.selectBox.js"></script>
+    <script src="assets/js/rangeslider.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.filterizr.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/backstretch.js"></script>
+    <script src="assets/js/jquery.countdown.js"></script>
+    <script src="assets/js/jquery.scrollUp.js"></script>
+    <script src="assets/js/particles.min.js"></script>
+    <script src="assets/js/typed.min.js"></script>
+    <script src="assets/js/dropzone.js"></script>
+    <script src="assets/js/leaflet.js"></script>
+    <script src="assets/js/leaflet-providers.js"></script>
+    <script src="assets/js/leaflet.markercluster.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>    
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+    <!-- Custom JS Script -->
+    <script src="assets/js/app.js"></script>
+    <script src="cpanel/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+</body>
+</html>

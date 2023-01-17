@@ -1,0 +1,340 @@
+﻿
+/*Google map with search*/
+#map {
+    width: 100%;
+    height: 500px;
+    margin-top: 10px;
+}
+
+.controls {
+    margin-top: 10px;
+    border: 1px solid transparent;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 32px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#searchInput {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 50%;
+}
+
+    #searchInput:focus {
+        border-color: #4d90fe;
+    }
+
+/*Radiobtn style*/
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+
+    [type="radio"]:checked + label,
+    [type="radio"]:not(:checked) + label {
+        position: relative;
+        padding-left: 28px;
+        cursor: pointer;
+        line-height: 20px;
+        display: inline-block;
+        color: #666;
+    }
+
+        [type="radio"]:checked + label:before,
+        [type="radio"]:not(:checked) + label:before {
+            content: '';
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 18px;
+            height: 18px;
+            border: 1px solid #284dbf;
+            border-radius: 100%;
+            background: #fff;
+        }
+
+        [type="radio"]:checked + label:after,
+        [type="radio"]:not(:checked) + label:after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: #284dbf;
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            border-radius: 100%;
+            -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+        }
+
+        [type="radio"]:not(:checked) + label:after {
+            opacity: 0;
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+
+        [type="radio"]:checked + label:after {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+
+/* Validation */
+label.error {
+    color: #cc5965;
+    display: none;
+    margin-left: 5px;
+    font-weight: normal;
+    margin-top: 10px;
+}
+
+table td {
+    padding: 0 10px;
+}
+
+.i-checks .form-control {
+    background-color: #fafafa;
+}
+
+table label {
+    padding-left: 7px;
+}
+
+.collaps-btn i {
+    float: right;
+    border: 1px solid #afafaf;
+    border-radius: 50px;
+}
+
+.search-area .search-fields {
+    border: 1px solid #c7c7c7;
+}
+
+.control-label {
+    color: #808080;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.search-area .search-fields {
+    min-height: 40px;
+    height: 40px;
+}
+
+.search-area .search-fields {
+    padding: 2px 5px 2px 0;
+}
+
+.panel {
+    border: 1px solid #ced4da;
+    border-radius: 3px;
+}
+
+.panel-title {
+    margin-bottom: 0;
+}
+
+.collaps-btn i {
+    margin: 6px 12px;
+}
+
+.panel-collapse {
+    padding: 15px;
+}
+
+.search-area-inner {
+    border: 2px solid #cccccc;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0px 0px 30px #cccccc;
+}
+.content-area-2 {
+    padding: 60px 0 0px;
+}
+.main-title {
+    margin-bottom:0;
+}
+@media only screen and (min-width:770px) {
+    .search-area-inner {
+        width: 75%;
+        margin: 20px auto 60px auto;
+    }
+
+    .control-label {
+        text-align: right;
+        color: #808080;
+        padding-top: 10px;
+    }    
+}
+
+@media only screen and (max-width:770px) {
+    .search-area-inner {
+        width: 100%;
+        margin: 20px auto 40px auto;
+    }
+
+    #searchInput {
+        z-index: 1;
+        position: absolute;
+        left: 0px;
+        top: 45px;
+    }
+}
+
+
+#dropPin {
+    font-size: 26px;
+    color: #284dbf;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+    #dropPin:hover {
+        color: #0c2f9b;
+    }
+
+#refresh {
+    font-size: 20px;
+    color: #336d00;
+    cursor:pointer;
+    margin-left:10px;
+}
+    #refresh:hover {
+        color: #224900;
+    }
+
+/*************************wizard***************************/
+/*font Variables*/
+/*Color Variables*/
+@import url("https://fonts.googleapis.com/css?family=Roboto:300i,400,400i,500,700,900");
+
+.multi_step_form {
+    display: block;
+    overflow: hidden;
+}
+
+    .multi_step_form #msform {
+        text-align: center;
+        position: relative;
+        padding-top: 50px;
+        max-width: 810px;
+        margin: 0 auto;
+        background: #fafafa;
+        z-index: 1;
+    }
+
+        .multi_step_form #msform #progressbar {
+            margin-bottom: 30px;
+            overflow: hidden;
+            width:100%;
+        }
+
+            .multi_step_form #msform #progressbar li {
+                list-style-type: none;
+                color: #99a2a8;
+                font-size: 9px;
+                width: calc(100%/3);
+                float: left;
+                position: relative;
+                font: 500 13px/1 "Roboto", sans-serif;
+            }
+
+                .multi_step_form #msform #progressbar li:nth-child(2):before {
+                    content: url('../img/propertyDetails.png');
+                    padding-top:3px;
+                }
+
+                .multi_step_form #msform #progressbar li:nth-child(3):before {
+                    content: url('../img/photo.png');
+                }
+
+                .multi_step_form #msform #progressbar li:before {
+                    content: url('../img/user.png');
+                    padding: 2px 1px 0 0;
+                    font: normal normal normal 30px/50px Ionicons;
+                    width: 50px;
+                    height: 50px;
+                    line-height: 50px;
+                    display: block;
+                    background: #7d7d7d;
+                    border-radius: 50%;
+                    margin: 0 auto 10px auto;
+                }
+
+                .multi_step_form #msform #progressbar li:after {
+                    content: '';
+                    width: 100%;
+                    height: 10px;
+                    background: #7d7d7d;
+                    position: absolute;
+                    left: -50%;
+                    top: 21px;
+                    z-index: -1;
+                }
+
+                .multi_step_form #msform #progressbar li:last-child:after {
+                    width: 150%;
+                }
+
+                .multi_step_form #msform #progressbar li.active {
+                    color: #2646a7;
+                }
+
+                    .multi_step_form #msform #progressbar li.active:before, .multi_step_form #msform #progressbar li.active:after {
+                        background: #2646a7;
+                        color: white;
+                    }
+
+        .multi_step_form #msform .action-button {
+            background: #5cb85c;
+            color: white;
+            border: 0 none;
+            border-radius: 5px;
+            cursor: pointer;
+            min-width: 130px;
+            font: 700 14px/40px "Roboto", sans-serif;
+            border: 1px solid #5cb85c;
+            margin: 0 5px;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+
+            .multi_step_form #msform .action-button:hover, .multi_step_form #msform .action-button:focus {
+                background: #405867;
+                border-color: #405867;
+            }
+
+        .multi_step_form #msform .previous_button {
+            background: transparent;
+            color: #99a2a8;
+            border-color: #99a2a8;
+        }
+
+            .multi_step_form #msform .previous_button:hover, .multi_step_form #msform .previous_button:focus {
+                background: #405867;
+                border-color: #405867;
+                color: #fff;
+            }
+
+/*Capcha txtbox*/
+#mainCaptcha {
+    margin-bottom: 0px;
+    width: 180px;
+    height: 40px;
+    font-size: 24px;
+    font-weight: bolder;
+    color: #dddddd;
+    text-decoration: underline overline line-through;
+    display: inline-block;
+    background-image: url(/../assets/img/capcha-bg.png)
+}
